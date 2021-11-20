@@ -15,7 +15,6 @@ export function UsersSuggestion() {
   const filteredUsers = users?.filter((user) => user?._id !== fetchedUser?._id);
 
   const updateFollowing = (targetUserId) => {
-    console.log("here");
     dispatch(
       updateFollowingAndFollowers({
         username: fetchedUser?.username,
@@ -38,7 +37,7 @@ export function UsersSuggestion() {
                 className={
                   !fetchedUser?.following.includes(user?._id)
                     ? "bg-blue-500 text-white px-4 py-2"
-                    : "bg-red-500"
+                    : "bg-red-500 text-white px-4 py-2"
                 }
                 onClick={() => updateFollowing(user?._id)}
               >
