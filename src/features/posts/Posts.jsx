@@ -1,18 +1,8 @@
 import { useSelector } from "react-redux";
-import {
-  selectToken,
-  selectAllPosts,
-  selectAllUsers,
-  selectCurrentUser,
-} from "../index";
+import { selectAllPosts } from "../index";
 
 export function Posts() {
-  const token = useSelector(selectToken);
   const posts = useSelector(selectAllPosts);
-  const users = useSelector(selectAllUsers);
-  const currentUser = useSelector(selectCurrentUser);
-
-  console.log({ posts });
 
   if (!posts.length) {
     return <div className="loader"></div>;
