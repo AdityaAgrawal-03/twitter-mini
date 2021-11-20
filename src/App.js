@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Route, Routes } from "react-router";
 import "./App.css";
 import {
-  Posts,
   Login,
   Signup,
   selectToken,
@@ -11,7 +10,7 @@ import {
   selectPostStatus,
   selectUserStatus
 } from "./features/index";
-import { PrivateRoute } from "./components/index";
+import { PrivateRoute, Home } from "./components/index";
 import { setUpAuthHeaderForServiceCalls } from "./utils/setUpAuthHeaderForServiceCalls";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -43,7 +42,7 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              <Posts />
+              <Home />
             </PrivateRoute>
           }
         />

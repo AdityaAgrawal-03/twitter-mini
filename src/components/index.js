@@ -1,1 +1,2 @@
-export { PrivateRoute } from "./PrivateRoute"
+export { PrivateRoute } from "./PrivateRoute";
+export { Home } from "./Home"

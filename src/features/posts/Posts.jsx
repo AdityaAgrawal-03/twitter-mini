@@ -4,7 +4,6 @@ import {
   selectAllPosts,
   selectAllUsers,
   selectCurrentUser,
-  AddPost
 } from "../index";
 
 export function Posts() {
@@ -13,21 +12,21 @@ export function Posts() {
   const users = useSelector(selectAllUsers);
   const currentUser = useSelector(selectCurrentUser);
 
-  console.log({ posts })
+  console.log({ posts });
 
   if (!posts.length) {
-    return <div className="loader"></div>
+    return <div className="loader"></div>;
   }
 
   return (
-    <div className="flex flex-col items-center w-1/2">
-      <AddPost />
-      {posts && posts.map((post) => (
-        <div className="post-card" key={post._id}>
-          <p className="font-bold"> {post?.user?.username} </p>
-          <p> {post?.content} </p>
-        </div>
-      ))}
+    <div className="flex flex-col items-center">
+      {posts &&
+        posts.map((post) => (
+          <div className="post-card" key={post._id}>
+            <p className="font-bold"> {post?.user?.username} </p>
+            <p> {post?.content} </p>
+          </div>
+        ))}
     </div>
   );
 }
