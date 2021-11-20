@@ -1,0 +1,1 @@
+export const API_URL = "https://twitter-mini-backend.aditya365.repl.co";
