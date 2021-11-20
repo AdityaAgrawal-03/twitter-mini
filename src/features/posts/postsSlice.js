@@ -22,8 +22,15 @@ const postsSlice = createSlice({
       state.status = "success";
       console.log(action.payload)
       state.posts = state.posts.concat(action.payload)
+    },
+    [fetchPosts.rejected]: (state, action) => {
+      state.status = "failed";
+      state.error = action.error.message;
     }
   }
 })
+
+export const selectAllPosts = (state) => state.posts.posts;
+export const selectPostStatus = (state) => state.posts.status;
 
 export default postsSlice.reducer;
