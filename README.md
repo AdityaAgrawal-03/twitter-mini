@@ -1,9 +1,10 @@
 # Twitter-Mini
 
-A full-stack mini implementation of twitter - [https://twitter-mini.netlify.app](https://twitter-mini.netlify.app/login)
+A full-stack mini implementation of twitter - [https://twitter-mini.netlify.app](https://twitter-mini.netlify.app)
 
 # API
-[https://replit.com/@aditya365/twitter-mini-backend](https://replit.com/@aditya365/twitter-mini-backend)
+Fork the link to use the API - 
+[https://github.com/AdityaAgrawal-03/twitterMini-backend](https://github.com/AdityaAgrawal-03/twitterMini-backend)
 
 # Features
  - users can follow/unfollow other users
