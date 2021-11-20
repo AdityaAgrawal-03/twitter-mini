@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuthStatus, selectAuthError, loginUser } from "../index";
 
@@ -33,8 +33,8 @@ export function Login() {
         <button
           className="text-blue-500 font-bold text-lg mb-4"
           onClick={() => {
-            setEmail("test@gmail.com");
-            setPassword("test");
+            setEmail("michael@gmail.com");
+            setPassword("michael");
           }}
         >
           Use guest credentials
@@ -89,12 +89,7 @@ export function Login() {
           </button>
           {status === "failed" && <p> {error} </p>}
         </form>
-        <p className="text-center mt-4">
-          Don't have an account?
-          <Link to="/signup" className="text-blue-500 ml-2 font-bold">
-            Signup
-          </Link>
-        </p>
+        
       </div>
     </div>
   );
