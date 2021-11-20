@@ -1,6 +1,6 @@
 # Twitter-Mini
 
-A full-stack mini implementation of twitter - [https://twitter-mini.netlify.app](https://twitter-mini.netlify.app/login)
+A full-stack mini implementation of twitter - [https://twitter-mini.netlify.app](https://twitter-mini.netlify.app)
 
 # API
 [https://replit.com/@aditya365/twitter-mini-backend](https://replit.com/@aditya365/twitter-mini-backend)
