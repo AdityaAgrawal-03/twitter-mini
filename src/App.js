@@ -8,7 +8,9 @@ import {
   fetchPosts,
   fetchUsers,
   selectPostStatus,
-  selectUserStatus
+  selectUserStatus,
+  getUser,
+  selectCurrentUser,
 } from "./features/index";
 import { PrivateRoute, Home } from "./components/index";
 import { setUpAuthHeaderForServiceCalls } from "./utils/setUpAuthHeaderForServiceCalls";
@@ -18,6 +20,7 @@ function App() {
   const token = useSelector(selectToken);
   const postStatus = useSelector(selectPostStatus);
   const userStatus = useSelector(selectUserStatus);
+  const currentUser = useSelector(selectCurrentUser);
 
   const dispatch = useDispatch();
 
@@ -25,15 +28,16 @@ function App() {
 
   useEffect(() => {
     if (token && postStatus === "idle") {
-      dispatch(fetchPosts())
+      dispatch(fetchPosts());
     }
-  }, [token, postStatus, dispatch])
+  }, [token, postStatus, dispatch]);
 
   useEffect(() => {
     if (token && userStatus === "idle") {
-      dispatch(fetchUsers())
+      dispatch(fetchUsers());
+      dispatch(getUser({ username: currentUser?.username }));
     }
-  }, [token, dispatch, userStatus])
+  }, [token, dispatch, userStatus, currentUser]);
 
   return (
     <div className="bg-coolGray-200 min-h-screen">

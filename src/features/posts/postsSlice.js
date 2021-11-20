@@ -28,7 +28,7 @@ const postsSlice = createSlice({
     },
     [fetchPosts.fulfilled]: (state, action) => {
       state.status = "success";
-      console.log(action.payload)
+      
       state.posts = state.posts.concat(action.payload)
     },
     [fetchPosts.rejected]: (state, action) => {

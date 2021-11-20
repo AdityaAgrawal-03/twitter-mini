@@ -21,4 +21,8 @@ export {
   fetchUsers,
   selectAllUsers,
   selectUserStatus,
+  fetchFollowing,
+  updateFollowingAndFollowers,
+  getUser,
+  selectFetchedUser
 } from "./users/usersSlice";
