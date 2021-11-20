@@ -5,6 +5,14 @@ import axios from "axios";
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const response = await axios.get(`${API_URL}/posts`);
   return response.data.posts;
+});
+
+export const addPost = createAsyncThunk("posts/addPost", async ({ content }) => {
+  const response = await axios.post(`${API_URL}/posts`, {
+    content: content,
+  });
+
+  return response.data.post;
 })
 
 const postsSlice = createSlice({
@@ -26,7 +34,18 @@ const postsSlice = createSlice({
     [fetchPosts.rejected]: (state, action) => {
       state.status = "failed";
       state.error = action.error.message;
-    }
+    },
+    [addPost.pending]: (state, action) => {
+      state.status = "pending";
+    },
+    [addPost.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.posts.push(action.payload);
+    },
+    [addPost.rejected]: (state, action) => {
+      state.status = "rejected";
+      state.error = action.error.message;
+    },
   }
 })
 

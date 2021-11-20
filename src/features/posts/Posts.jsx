@@ -1,17 +1,33 @@
-import { useSelector } from "react-redux"
-import { selectToken, selectAllPosts, selectAllUsers } from "../index"
+import { useSelector } from "react-redux";
+import {
+  selectToken,
+  selectAllPosts,
+  selectAllUsers,
+  selectCurrentUser,
+  AddPost
+} from "../index";
 
 export function Posts() {
-  const token = useSelector(selectToken)
+  const token = useSelector(selectToken);
   const posts = useSelector(selectAllPosts);
   const users = useSelector(selectAllUsers);
+  const currentUser = useSelector(selectCurrentUser);
 
-  console.log({ posts });
-  console.log({ users });
+  console.log({ posts })
+
+  if (!posts.length) {
+    return <div className="loader"></div>
+  }
 
   return (
-    <>
-      <h1> Posts  </h1>
-    </>
-  )
+    <div className="flex flex-col items-center w-1/2">
+      <AddPost />
+      {posts && posts.map((post) => (
+        <div className="post-card" key={post._id}>
+          <p className="font-bold"> {post?.user?.username} </p>
+          <p> {post?.content} </p>
+        </div>
+      ))}
+    </div>
+  );
 }

@@ -17,7 +17,7 @@ const authSlice = createSlice({
   initialState: {
     token: JSON.parse(localStorage?.getItem("token"))?.token || null,
     status: "idle",
-    currentUser: null,
+    currentUser: JSON.parse(localStorage?.getItem("user"))?.user || null,
     error: null
   },
   reducers: {

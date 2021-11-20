@@ -1,9 +1,11 @@
 export { Posts } from "./posts/Posts";
 export { Login } from "./authentication/Login";
 export { Signup } from "./authentication/Signup";
+export { AddPost } from "./posts/AddPost"
 
 export {
   fetchPosts,
+  addPost,
   selectAllPosts,
   selectPostStatus,
 } from "./posts/postsSlice";
